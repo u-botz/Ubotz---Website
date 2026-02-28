@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ubotz - The Operating System for Learning</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#319A86",
+                        "primary-dark": "#0C2722",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#0C2722",
+                    },
+                    backgroundImage: {
+                        'brand-gradient': 'linear-gradient(135deg, #0C2722 0%, #319A86 100%)',
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .hero-gradient {
+            background:
+                radial-gradient(at 0% 0%, rgba(12, 39, 34, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(49, 154, 134, 0.1) 0px, transparent 50%),
+                linear-gradient(180deg, #0C2722 0%, #1a4d44 100%);
+        }
+
+        .dashboard-glow {
+            box-shadow: 0 0 80px -20px rgba(12, 39, 34, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, #0C2722 0%, #319A86 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light text-slate-900 font-display">
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md border-b border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a class="flex items-center gap-2 text-slate-900" href="#">
+                    <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+                        <span class="material-symbols-outlined text-xl">token</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-slate-900">Ubotz</span>
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-primary-dark transition-colors text-slate-900"
+                        href="#">Products</a>
+                    <a class="text-sm font-medium hover:text-primary-dark transition-colors text-slate-900"
+                        href="#">Integrations</a>
+                    <a class="text-sm font-medium hover:text-primary-dark transition-colors text-slate-900"
+                        href="#">Pricing</a>
+                    <a class="text-sm font-medium hover:text-primary-dark transition-colors text-slate-900"
+                        href="#">Resources</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="text-sm font-semibold text-slate-700 hover:text-primary-dark text-slate-900"
+                    href="#">Login</a>
+                <button
+                    class="bg-primary hover:bg-primary-dark text-background-dark font-bold py-2 px-5 rounded-lg text-sm transition-all shadow-sm">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <main class="pt-32 pb-20 px-6 relative overflow-hidden"
+        style="background: radial-gradient(circle at center, #DCFCE7 0%, #FFFFFF 70%);">
+        <div class="max-w-5xl mx-auto text-center flex flex-col items-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 mb-8 bg-white">
+                <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                <span class="text-[10px] font-bold tracking-widest text-primary-dark uppercase">Now in Enterprise
+                    Beta</span>
+            </div>
+            <!-- Headline -->
+            <h1
+                class="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1] font-extrabold tracking-tighter">
+                The Operating System <br />
+                <span class="">for Modern</span> <br />
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary-dark to-primary">Learning</span>
+            </h1>
+            <!-- Subhead -->
+            <p class="text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+                Scale your institute with professional-grade governance, not just content. The first all-in-one platform
+                built for institutional authority.
+            </p>
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-20 w-full justify-center">
+                <button
+                    class="bg-primary hover:bg-primary-dark text-background-dark font-bold py-4 px-8 rounded-xl text-lg transition-all shadow-lg hover:shadow-primary/20 flex items-center justify-center gap-2 hover:-translate-y-1 btn-gradient text-white">
+                    Get Started Free
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+                <button
+                    class="bg-white border-2 border-slate-200 hover:border-primary text-slate-700 font-bold py-4 px-8 rounded-xl text-lg transition-all flex items-center justify-center gap-2 hover:-translate-y-1">
+                    Schedule a Demo
+                </button>
+            </div>
+            <!-- Dashboard Mockup Container -->
+            <div class="relative w-full max-w-6xl mx-auto -mt-10">
+                <!-- Floating Card 1: Live Attendance -->
+                <div
+                    class="absolute -left-12 top-20 z-20 glass-card p-4 rounded-2xl hidden lg:flex items-center gap-4 animate-bounce [animation-duration:3s]">
+                    <div
+                        class="size-10 rounded-full bg-emerald-100 flex items-center justify-center text-primary-dark shadow-[0_0_15px_rgba(22,163,74,0.2)]">
+                        <span class="material-symbols-outlined text-xl">how_to_reg</span>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Live Attendance</p>
+                        <p class="text-lg font-bold text-slate-800">98.4%</p>
+                    </div>
+                </div>
+                <!-- Floating Card 2: Student Growth -->
+                <div class="absolute -right-16 bottom-32 z-20 glass-card p-5 rounded-2xl hidden lg:block animate-pulse">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="size-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white shadow-lg">
+                            <span class="material-symbols-outlined text-lg">trending_up</span>
+                        </div>
+                        <span class="font-bold text-slate-800">Growth</span>
+                    </div>
+                    <div class="flex items-end gap-1">
+                        <div class="w-2 h-8 bg-slate-100 rounded-full"></div>
+                        <div class="w-2 h-12 bg-slate-100 rounded-full"></div>
+                        <div class="w-2 h-16 bg-primary rounded-full"></div>
+                        <div class="w-2 h-10 bg-slate-100 rounded-full"></div>
+                    </div>
+                </div>
+                <!-- Floating Card 3: Revenue -->
+                <div
+                    class="absolute -right-8 top-10 z-20 glass-card p-4 rounded-2xl hidden lg:flex items-center gap-4 animate-bounce [animation-duration:4s]">
+                    <div class="size-10 rounded-full bg-slate-900 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-xl">payments</span>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Revenue Stats</p>
+                        <p class="text-lg font-bold text-slate-800">+$12.4k</p>
+                    </div>
+                </div>
+                <!-- Background Glow Effect -->
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-[#0C2722] to-[#319A86] rounded-2xl blur-3xl opacity-30 -z-10">
+                </div>
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden dashboard-glow">
+                    <!-- Dashboard Header Mockup -->
+                    <div class="h-12 border-b border-slate-100 flex items-center px-4 justify-between bg-slate-50/50">
+                        <div class="flex gap-1.5">
+                            <div class="size-2.5 rounded-full bg-slate-300"></div>
+                            <div class="size-2.5 rounded-full bg-slate-300"></div>
+                            <div class="size-2.5 rounded-full bg-slate-300"></div>
+                        </div>
+                        <div class="h-6 w-1/3 bg-slate-200/50 rounded-full"></div>
+                        <div class="size-6 bg-slate-200 rounded-full"></div>
+                    </div>
+                    <!-- Dashboard Content Area -->
+                    <div class="p-6 grid grid-cols-12 gap-6 bg-white min-h-[400px]">
+                        <!-- Sidebar -->
+                        <div class="col-span-3 space-y-4">
+                            <div class="h-8 w-full bg-primary/10 rounded-lg"></div>
+                            <div class="h-8 w-3/4 bg-slate-100 rounded-lg"></div>
+                            <div class="h-8 w-5/6 bg-slate-100 rounded-lg"></div>
+                            <div class="h-8 w-2/3 bg-slate-100 rounded-lg"></div>
+                            <div class="pt-10">
+                                <div class="h-24 w-full bg-slate-50 border border-dashed border-slate-200 rounded-xl">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Main Panel -->
+                        <div class="col-span-9 space-y-6">
+                            <div class="flex justify-between items-end">
+                                <div class="space-y-2">
+                                    <div class="h-6 w-48 bg-slate-200 rounded-md"></div>
+                                    <div class="h-4 w-32 bg-slate-100 rounded-md"></div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <div class="h-10 w-24 bg-primary/20 rounded-lg"></div>
+                                    <div class="h-10 w-24 bg-primary rounded-lg"></div>
+                                </div>
+                            </div>
+                            <!-- Stat Cards -->
+                            <div class="grid grid-cols-3 gap-4">
+                                <div
+                                    class="h-32 bg-white border border-slate-100 rounded-xl shadow-sm p-4 flex flex-col justify-between">
+                                    <div
+                                        class="size-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600">
+                                        <span class="material-symbols-outlined text-lg">groups</span>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="h-3 w-16 bg-slate-100 rounded"></div>
+                                        <div class="h-6 w-24 bg-slate-200 rounded"></div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="h-32 bg-white border border-slate-100 rounded-xl shadow-sm p-4 flex flex-col justify-between">
+                                    <div
+                                        class="size-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600">
+                                        <span class="material-symbols-outlined text-lg">monitoring</span>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="h-3 w-16 bg-slate-100 rounded"></div>
+                                        <div class="h-6 w-24 bg-slate-200 rounded"></div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="h-32 bg-white border border-slate-100 rounded-xl shadow-sm p-4 flex flex-col justify-between">
+                                    <div
+                                        class="size-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600">
+                                        <span class="material-symbols-outlined text-lg">account_balance</span>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="h-3 w-16 bg-slate-100 rounded"></div>
+                                        <div class="h-6 w-24 bg-slate-200 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Chart Mockup -->
+                            <div
+                                class="h-48 w-full bg-slate-50 rounded-2xl relative overflow-hidden border border-slate-100">
+                                <svg class="absolute bottom-0 w-full" preserveaspectratio="none" viewbox="0 0 400 100">
+                                    <path d="M0,80 Q50,20 100,50 T200,30 T300,70 T400,10 L400,100 L0,100 Z"
+                                        fill="rgba(6, 78, 59, 0.1)"></path>
+                                    <path d="M0,80 Q50,20 100,50 T200,30 T300,70 T400,10" fill="none" stroke="#059669"
+                                        stroke-width="2"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Trust Bar -->
+    <section class="py-16 border-t border-slate-100 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-center text-sm font-semibold text-slate-400 uppercase tracking-widest mb-10">Trusted by 500+
+                Institutions Worldwide</p>
+            <div
+                class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl">school</span>
+                    <span class="text-xl font-bold text-slate-700">Stanford</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl">account_balance</span>
+                    <span class="text-xl font-bold text-slate-700">Berkeley</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl">history_edu</span>
+                    <span class="text-xl font-bold text-slate-700">Oxford</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl">architecture</span>
+                    <span class="text-xl font-bold text-slate-700">MIT</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-3xl">auto_stories</span>
+                    <span class="text-xl font-bold text-slate-700">Harvard</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">How We Work</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Get up and running with Ubotz in days, not months. Our
+                    streamlined process is built for institutional speed.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <!-- Connection Lines (Desktop) -->
+                <div
+                    class="hidden md:block absolute top-12 left-1/4 right-1/4 h-0.5 border-t-2 border-dashed border-slate-100 -z-0">
+                </div>
+                <div class="relative z-10 text-center">
+                    <div
+                        class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary-dark mx-auto mb-6 shadow-sm">
+                        <span class="material-symbols-outlined text-3xl">settings_suggest</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">1. Strategic Setup</h3>
+                    <p class="text-slate-600">Define your governance structure and institutional requirements with our
+                        expert onboarding team.</p>
+                </div>
+                <div class="relative z-10 text-center">
+                    <div
+                        class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary-dark mx-auto mb-6 shadow-sm">
+                        <span class="material-symbols-outlined text-3xl">sync_alt</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">2. Deep Integration</h3>
+                    <p class="text-slate-600">Connect your existing SIS, CRM, and financial ecosystems through our
+                        pre-built enterprise connectors.</p>
+                </div>
+                <div class="relative z-10 text-center">
+                    <div
+                        class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary-dark mx-auto mb-6 shadow-sm">
+                        <span class="material-symbols-outlined text-3xl">auto_graph</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">3. Scale Learning</h3>
+                    <p class="text-slate-600">Launch across your entire institution with real-time analytics and
+                        automated compliance monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Brief -->
+    <section class="py-24 px-6 bg-slate-50" id="platform-modules">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Comprehensive Institutional Governance
+                </h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Four specialized engines working in perfect synchronization
+                    to power your entire educational ecosystem.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- LMS Core -->
+                <div class="glass-card p-6 rounded-2xl border border-primary/20 bg-white/50 flex flex-col">
+                    <div
+                        class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark mb-6">
+                        <span class="material-symbols-outlined">school</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">LMS Core</h3>
+                    <p class="text-sm text-slate-600 mb-6">High-performance learning infrastructure designed for
+                        institutional scale.</p>
+                    <div class="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">SCORM/xAPI support</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">AI Course Builder</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Automated Proctoring</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ERP System -->
+                <div class="glass-card p-6 rounded-2xl border border-primary/20 bg-white/50 flex flex-col">
+                    <div
+                        class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark mb-6">
+                        <span class="material-symbols-outlined">account_tree</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">ERP System</h3>
+                    <p class="text-sm text-slate-600 mb-6">Streamline operations with automated resource and personnel
+                        management.</p>
+                    <div class="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Automated Attendance</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Resource Scheduling</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Multi-campus Governance</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- CRM Engine -->
+                <div class="glass-card p-6 rounded-2xl border border-primary/20 bg-white/50 flex flex-col">
+                    <div
+                        class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark mb-6">
+                        <span class="material-symbols-outlined">groups_3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">CRM Engine</h3>
+                    <p class="text-sm text-slate-600 mb-6">Optimize the student lifecycle from initial inquiry to alumni
+                        relations.</p>
+                    <div class="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Lead Scoring</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Enrollment Funnels</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Parent Engagement Portal</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Finance Hub -->
+                <div class="glass-card p-6 rounded-2xl border border-primary/20 bg-white/50 flex flex-col">
+                    <div
+                        class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark mb-6">
+                        <span class="material-symbols-outlined">payments</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Finance Hub</h3>
+                    <p class="text-sm text-slate-600 mb-6">Full-cycle financial management with automated
+                        reconciliations.</p>
+                    <div class="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Automated Invoicing</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Fee Reconciliation</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Multi-currency Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-slate-600">Choose the plan that fits your institution's scale.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter -->
+                <div class="p-8 bg-white border border-slate-200 rounded-2xl flex flex-col">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Starter</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$499</span>
+                        <span class="text-slate-500">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span> Up to
+                            500 Students</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span> Basic
+                            Governance Tools</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span> Standard
+                            Integrations</li>
+                    </ul>
+                    <button
+                        class="w-full py-3 px-6 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition-colors">Start
+                        Free Trial</button>
+                </div>
+                <!-- Pro -->
+                <div
+                    class="p-8 bg-white border-2 border-primary rounded-2xl flex flex-col relative shadow-xl scale-105 z-10">
+                    <div
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-background-dark text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+                        Most Popular</div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Professional</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">$1,299</span>
+                        <span class="text-slate-500">/month</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span> Up to
+                            5,000 Students</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span> Advanced
+                            RBAC &amp; Audits</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span> Priority
+                            API Access</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span> Custom
+                            Reporting</li>
+                    </ul>
+                    <button
+                        class="w-full py-3 px-6 rounded-xl bg-primary text-background-dark font-bold hover:bg-primary-dark transition-colors btn-gradient text-white">Get
+                        Started Now</button>
+                </div>
+                <!-- Enterprise -->
+                <div class="p-8 bg-white border border-slate-200 rounded-2xl flex flex-col">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Enterprise</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">Custom</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span>
+                            Unlimited Students</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span>
+                            White-label Option</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span>
+                            Dedicated Success Manager</li>
+                        <li class="flex items-center gap-3 text-sm text-slate-600"><span
+                                class="material-symbols-outlined text-primary-dark text-lg">check_circle</span> 24/7
+                            Phone Support</li>
+                    </ul>
+                    <button
+                        class="w-full py-3 px-6 rounded-xl border border-slate-200 font-bold text-slate-700 hover:bg-slate-50 transition-colors">Contact
+                        Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6 bg-slate-50" id="platform-modules">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Comprehensive Institutional Governance
+                </h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Four specialized engines working in perfect synchronization
+                    to power your entire educational ecosystem.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- LMS Core -->
+                <div class="glass-card p-6 rounded-2xl border border-primary/20 bg-white/50 flex flex-col">
+                    <div
+                        class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark mb-6">
+                        <span class="material-symbols-outlined">school</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">LMS Core</h3>
+                    <p class="text-sm text-slate-600 mb-6">High-performance learning infrastructure designed for
+                        institutional scale.</p>
+                    <div class="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">SCORM/xAPI support</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">AI Course Builder</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Automated Proctoring</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- ERP System -->
+                <div class="glass-card p-6 rounded-2xl border border-primary/20 bg-white/50 flex flex-col">
+                    <div
+                        class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark mb-6">
+                        <span class="material-symbols-outlined">account_tree</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">ERP System</h3>
+                    <p class="text-sm text-slate-600 mb-6">Streamline operations with automated resource and personnel
+                        management.</p>
+                    <div class="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Automated Attendance</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Resource Scheduling</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Multi-campus Governance</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- CRM Engine -->
+                <div class="glass-card p-6 rounded-2xl border border-primary/20 bg-white/50 flex flex-col">
+                    <div
+                        class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark mb-6">
+                        <span class="material-symbols-outlined">groups_3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">CRM Engine</h3>
+                    <p class="text-sm text-slate-600 mb-6">Optimize the student lifecycle from initial inquiry to alumni
+                        relations.</p>
+                    <div class="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Lead Scoring</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Enrollment Funnels</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Parent Engagement Portal</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Finance Hub -->
+                <div class="glass-card p-6 rounded-2xl border border-primary/20 bg-white/50 flex flex-col">
+                    <div
+                        class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark mb-6">
+                        <span class="material-symbols-outlined">payments</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Finance Hub</h3>
+                    <p class="text-sm text-slate-600 mb-6">Full-cycle financial management with automated
+                        reconciliations.</p>
+                    <div class="mt-auto space-y-3 pt-6 border-t border-slate-100">
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Automated Invoicing</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Fee Reconciliation</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="size-1.5 rounded-full bg-primary"></span>
+                            <span class="text-xs font-medium text-slate-700">Multi-currency Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-slate-600">Everything you need to know about the Ubotz platform.</p>
+            </div>
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button
+                        class="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors group">
+                        <span class="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Does Ubotz
+                            support multi-tenancy for large institutions?</span>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-emerald-600">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-600 text-sm">
+                        Yes, Ubotz is built with a native multi-tenant architecture, allowing large institutions to
+                        manage multiple campuses or departments under a single master account with isolated data and
+                        custom branding for each.
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button
+                        class="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors group">
+                        <span class="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">How secure
+                            is our institutional data?</span>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-emerald-600">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-600 text-sm">
+                        Security is our top priority. We employ enterprise-grade encryption (AES-256), SOC2 Type II
+                        compliance, and regular third-party penetration testing to ensure your data remains protected
+                        and compliant with educational standards.
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button
+                        class="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors group">
+                        <span class="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Can we
+                            migrate from our existing LMS?</span>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-emerald-600">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-600 text-sm">
+                        Absolutely. Our expert onboarding team provides a comprehensive migration suite that supports
+                        SCORM, xAPI, and bulk data imports from major platforms like Moodle, Canvas, and Blackboard.
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                    <button
+                        class="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-slate-50 transition-colors group">
+                        <span class="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">What
+                            custom integrations are available?</span>
+                        <span
+                            class="material-symbols-outlined text-slate-400 group-hover:text-emerald-600">expand_more</span>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-600 text-sm">
+                        We offer pre-built connectors for popular SIS, CRM, and ERP systems. Additionally, our robust
+                        REST API allows for deep, custom integrations with any proprietary software your institution may
+                        use.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 px-6 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Side: Bento Diagram -->
+                <div class="grid grid-cols-4 grid-rows-3 gap-4 h-[500px]">
+                    <div
+                        class="col-span-2 row-span-2 glass-card rounded-3xl flex flex-col items-center justify-center p-6 bg-white/60 border-primary/10">
+                        <div
+                            class="size-12 bg-primary/10 rounded-full flex items-center justify-center text-primary-dark mb-4">
+                            <span class="material-symbols-outlined text-3xl">monitoring</span>
+                        </div>
+                        <span class="font-bold text-slate-800">Analytics</span>
+                        <div class="mt-4 w-full h-1 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="w-2/3 h-full bg-primary"></div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-span-2 row-span-1 glass-card rounded-3xl flex items-center gap-4 p-6 bg-white/60 border-primary/10">
+                        <div
+                            class="size-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark">
+                            <span class="material-symbols-outlined">fingerprint</span>
+                        </div>
+                        <span class="font-bold text-slate-800">Auth</span>
+                    </div>
+                    <div
+                        class="col-span-2 row-span-1 glass-card rounded-3xl flex items-center gap-4 p-6 bg-white/60 border-primary/10">
+                        <div
+                            class="size-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark">
+                            <span class="material-symbols-outlined">api</span>
+                        </div>
+                        <span class="font-bold text-slate-800">REST API</span>
+                    </div>
+                    <div
+                        class="col-span-4 row-span-1 glass-card rounded-3xl flex items-center justify-between p-8 bg-white/60 border-primary/10">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="size-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary-dark">
+                                <span class="material-symbols-outlined">database</span>
+                            </div>
+                            <div>
+                                <p class="font-bold text-slate-800">Database</p>
+                                <p class="text-xs text-slate-500">Enterprise-grade Security</p>
+                            </div>
+                        </div>
+                        <div class="flex -space-x-3">
+                            <div class="size-8 rounded-full bg-slate-100 border-2 border-white"></div>
+                            <div class="size-8 rounded-full bg-slate-200 border-2 border-white"></div>
+                            <div class="size-8 rounded-full bg-primary border-2 border-white"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Side: Text and Form -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Get in Touch</h2>
+                    <p class="text-slate-600 mb-8 text-lg">Ready to modernize your institution? Our team of specialists
+                        is ready to help you navigate the transition.</p>
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
+                        <form class="space-y-4">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Full
+                                        Name</label>
+                                    <input
+                                        class="w-full p-3 rounded-lg border-slate-200 focus:ring-primary focus:border-primary"
+                                        placeholder="John Doe" type="text" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Work
+                                        Email</label>
+                                    <input
+                                        class="w-full p-3 rounded-lg border-slate-200 focus:ring-primary focus:border-primary"
+                                        placeholder="john@university.edu" type="email" />
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-xs font-bold text-slate-500 uppercase tracking-wider">Institution</label>
+                                <input
+                                    class="w-full p-3 rounded-lg border-slate-200 focus:ring-primary focus:border-primary"
+                                    placeholder="Stanford University" type="text" />
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Message</label>
+                                <textarea
+                                    class="w-full p-3 rounded-lg border-slate-200 focus:ring-primary focus:border-primary"
+                                    placeholder="Tell us about your requirements..." rows="4"></textarea>
+                            </div>
+                            <button
+                                class="w-full py-4 bg-primary text-background-dark font-bold rounded-xl hover:bg-primary-dark transition-all shadow-lg btn-gradient text-white">Book
+                                My Demo</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
+                <div class="col-span-2">
+                    <a class="flex items-center gap-2 mb-6" href="#">
+                        <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+                            <span class="material-symbols-outlined text-xl">token</span>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-white">Ubotz</span>
+                    </a>
+                    <p class="max-w-xs text-sm leading-relaxed mb-6">
+                        The institutional operating system for modern learning. Empowering educators with
+                        governance-first infrastructure.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="size-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all"
+                            href="#">
+                            <span class="material-symbols-outlined text-lg">public</span>
+                        </a>
+                        <a class="size-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all"
+                            href="#">
+                            <span class="material-symbols-outlined text-lg">campaign</span>
+                        </a>
+                        <a class="size-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-background-dark transition-all"
+                            href="#">
+                            <span class="material-symbols-outlined text-lg">alternate_email</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Products</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">LMS Core</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Governance Pro</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Analytics Hub</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Integration API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Partners</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Newsroom</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Legal</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Data Processing</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+                <p>© 2024 Ubotz Technologies Inc. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a class="hover:text-white" href="#">Status</a>
+                    <a class="hover:text-white" href="#">Sitemap</a>
+                    <a class="hover:text-white" href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
