@@ -1,35 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #319A86;
-  --color-primary-dark: #0C2722;
-  --color-background-light: #f6f8f7;
-  --color-background-dark: #0C2722;
+  --color-primary: #16A34A;
+  --color-primary-dark: #064E3B;
+  --color-background-light: #ffffff;
+  --color-background-alt: #F0FDF4;
+  --color-slate-custom: #0F172A;
 
-  --font-display: "Lexend", sans-serif;
+  --font-sans: "Geist", sans-serif;
 
   --radius-DEFAULT: 0.25rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
   --radius-full: 9999px;
 }
 
 body {
-  font-family: 'Lexend', sans-serif;
-  background-color: #f6f8f7;
+  font-family: 'Geist', sans-serif;
+  background-color: #ffffff;
   color: #0f172a;
 }
 
-.hero-gradient {
-  background:
-    radial-gradient(at 0% 0%, rgba(12, 39, 34, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(49, 154, 134, 0.1) 0px, transparent 50%),
-    linear-gradient(180deg, #0C2722 0%, #1a4d44 100%);
+.btn-gradient {
+  background: linear-gradient(to bottom right, #16A34A, #15803D);
 }
 
 .dashboard-glow {
-  box-shadow: 0 0 80px -20px rgba(12, 39, 34, 0.4);
+  box-shadow: 0 0 80px -20px rgba(22, 163, 74, 0.3);
 }
 
 .glass-card {
@@ -37,8 +36,4 @@ body {
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-}
-
-.btn-gradient {
-  background: linear-gradient(135deg, #0C2722 0%, #319A86 100%);
 }
